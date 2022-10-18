@@ -10,6 +10,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import fr.tdd.bankaccount.Account;
 import fr.tdd.bankaccount.Console;
+import fr.tdd.bankaccount.StatementPrinter;
 import fr.tdd.bankaccount.TransactionStore;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -22,7 +23,8 @@ public class PrintStatementFeature {
 	@Before
 	public void initialise() {
 		TransactionStore transactionStore = new TransactionStore();
-		account = new Account(transactionStore);
+		StatementPrinter statementPrinter = new StatementPrinter();
+		account = new Account(transactionStore, statementPrinter);
 	}
 
 	@Test
