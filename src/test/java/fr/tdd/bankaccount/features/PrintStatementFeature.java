@@ -9,6 +9,7 @@ import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import fr.tdd.bankaccount.Account;
+import fr.tdd.bankaccount.Clock;
 import fr.tdd.bankaccount.Console;
 import fr.tdd.bankaccount.StatementPrinter;
 import fr.tdd.bankaccount.TransactionStore;
@@ -16,13 +17,14 @@ import fr.tdd.bankaccount.TransactionStore;
 @RunWith(MockitoJUnitRunner.class)
 public class PrintStatementFeature {
 
-	@Mock
-	private Console console;
+	
+	@Mock private Console console;
+	@Mock private Clock clock;
 	private Account account;
 
 	@Before
 	public void initialise() {
-		TransactionStore transactionStore = new TransactionStore();
+		TransactionStore transactionStore = new TransactionStore(clock);
 		StatementPrinter statementPrinter = new StatementPrinter();
 		account = new Account(transactionStore, statementPrinter);
 	}
