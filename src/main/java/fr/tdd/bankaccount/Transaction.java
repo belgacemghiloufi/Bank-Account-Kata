@@ -10,6 +10,14 @@ public class Transaction {
 		this.amount = amount;
 	}
 
+	public String date() {
+		return date;
+	}
+
+	public int amount() {
+		return amount;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
