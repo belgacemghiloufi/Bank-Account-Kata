@@ -17,7 +17,7 @@ public class Account {
 	}
 
 	public void printStatement() {
-		throw new UnsupportedOperationException();
+		
 	}
 
 }
