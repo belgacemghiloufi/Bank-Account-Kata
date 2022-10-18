@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class TransactionStore {
- 
+
 	private List<Transaction> transactions = new ArrayList<>();
 	private Clock clock;
 
@@ -14,12 +14,13 @@ public class TransactionStore {
 	}
 
 	public void addDepositTransaction(int amount) {
-		Transaction depositTransaction = new Transaction(clock.getTodayAsString(), amount);
-		transactions.add(depositTransaction);
+		Transaction deposit = new Transaction(clock.getTodayAsString(), amount);
+		transactions.add(deposit);
 	}
 
 	public void addWithdrawTransaction(int amount) {
-		throw new UnsupportedOperationException();
+		Transaction withdraw = new Transaction(clock.getTodayAsString(), -amount);
+		transactions.add(withdraw);
 	}
 
 	public List<Transaction> getTransactions() {
