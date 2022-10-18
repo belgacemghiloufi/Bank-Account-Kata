@@ -2,12 +2,18 @@ package fr.tdd.bankaccount;
 
 public class Account {
 
+	private TransactionStore transactionStore;
+
+	public Account(TransactionStore transactionStore) {
+		this.transactionStore = transactionStore;
+	}
+
 	public void deposit(int amount) {
-		throw new UnsupportedOperationException();
+		transactionStore.addDepositTransaction(amount);
 	}
 
 	public void withdraw(int amount) {
-		throw new UnsupportedOperationException();
+		transactionStore.addWithdrawTransaction(amount);
 	}
 
 	public void printStatement() {
